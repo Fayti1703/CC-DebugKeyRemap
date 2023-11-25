@@ -24,11 +24,6 @@
 			<Private>true</Private>
 			<CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
 		</Reference>
-		<Reference Include="CobaltCoreModding.Components">
-			<HintPath>$(ModLoaderAssembliesPath)/CobaltCoreModding.Components.dll</HintPath>
-			<Private>true</Private>
-			<CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
-		</Reference>
 		<Reference Include="CobaltCoreModding.Definitions">
 			<HintPath>$(ModLoaderAssembliesPath)/CobaltCoreModding.Definitions.dll</HintPath>
 			<Private>true</Private>
