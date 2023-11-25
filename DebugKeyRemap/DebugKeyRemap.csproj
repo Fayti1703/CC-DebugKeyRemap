@@ -1,0 +1,67 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<Import Project="../Paths.props" />
+
+	<ItemGroup>
+		<Reference Include="0Harmony">
+			<HintPath>$(ModLoaderAssembliesPath)/0Harmony.dll</HintPath>
+			<Private>true</Private>
+			<CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+		</Reference>
+		<Reference Include="CobaltCore">
+			<HintPath>$(GameAssembliesPath)/CobaltCore.dll</HintPath>
+			<Private>true</Private>
+			<CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+		</Reference>
+		<Reference Include="MonoGame.Framework">
+			<HintPath>$(GameAssembliesPath)/MonoGame.Framework.dll</HintPath>
+			<Private>true</Private>
+			<CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+		</Reference>
+		<Reference Include="CobaltCoreModding.Components">
+			<HintPath>$(ModLoaderAssembliesPath)/CobaltCoreModding.Components.dll</HintPath>
+			<Private>true</Private>
+			<CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+		</Reference>
+		<Reference Include="CobaltCoreModding.Definitions">
+			<HintPath>$(ModLoaderAssembliesPath)/CobaltCoreModding.Definitions.dll</HintPath>
+			<Private>true</Private>
+			<CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+		</Reference>
+		<Reference Include="Mono.Cecil">
+			<HintPath>$(ModLoaderAssembliesPath)/Mono.Cecil.dll</HintPath>
+			<Private>true</Private>
+			<CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+		</Reference>
+		<Reference Include="Microsoft.Extensions.Logging.Abstractions">
+			<HintPath>$(ModLoaderAssembliesPath)/Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+			<Private>true</Private>
+			<CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="./launch" />
+		<Compile Remove="./launch" />
+	</ItemGroup>
+
+	<Target AfterTargets="Build" Name="CopyOutput">
+		<ItemGroup>
+			<RealOutput Include="$(TargetDir)DebugKeyRemap.dll" />
+			<RealOutput Include="$(TargetDir)DebugKeyRemap.pdb" />
+		</ItemGroup>
+		<MakeDir Directories="launch" />
+		<Copy SourceFiles="@(RealOutput)" DestinationFolder="launch" />
+	</Target>
+
+</Project>

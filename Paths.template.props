@@ -1,0 +1,7 @@
+<!-- Copy this file to 'Path.props' and adjust these paths below: -->
+<Project>
+	<PropertyGroup>
+		<ModLoaderAssembliesPath>PATH_TO_MODLOADER_HERE</ModLoaderAssembliesPath>
+		<GameAssembliesPath>PATH_TO_UNBUNDLED_GAME_HERE</GameAssembliesPath>
+	</PropertyGroup>
+</Project>
